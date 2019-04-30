@@ -1,0 +1,12 @@
+C:\Users\viniciusv\Documents\Projects\SuperControl\SuperControl\obj\Debug\netstandard2.0\SuperControl.csprojAssemblyReference.cache
+C:\Users\viniciusv\Documents\Projects\SuperControl\SuperControl\bin\Debug\netstandard2.0\SuperControl.deps.json
+C:\Users\viniciusv\Documents\Projects\SuperControl\SuperControl\bin\Debug\netstandard2.0\SuperControl.dll
+C:\Users\viniciusv\Documents\Projects\SuperControl\SuperControl\bin\Debug\netstandard2.0\SuperControl.pdb
+C:\Users\viniciusv\Documents\Projects\SuperControl\SuperControl\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\viniciusv\Documents\Projects\SuperControl\SuperControl\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\viniciusv\Documents\Projects\SuperControl\SuperControl\obj\Debug\netstandard2.0\SuperControl.csproj.CoreCompileInputs.cache
+C:\Users\viniciusv\Documents\Projects\SuperControl\SuperControl\obj\Debug\netstandard2.0\SuperControl.AssemblyInfoInputs.cache
+C:\Users\viniciusv\Documents\Projects\SuperControl\SuperControl\obj\Debug\netstandard2.0\SuperControl.AssemblyInfo.cs
+C:\Users\viniciusv\Documents\Projects\SuperControl\SuperControl\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\viniciusv\Documents\Projects\SuperControl\SuperControl\obj\Debug\netstandard2.0\SuperControl.dll
+C:\Users\viniciusv\Documents\Projects\SuperControl\SuperControl\obj\Debug\netstandard2.0\SuperControl.pdb

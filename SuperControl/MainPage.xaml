@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SuperControl"
+             x:Class="SuperControl.MainPage"
+             Title="Produtos">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Detalhes"/>
+    </ContentPage.ToolbarItems>
+    
+    <StackLayout Padding="10">
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Produto" HorizontalOptions="StartAndExpand"/>            
+            <Label Text="Preços" HorizontalOptions="EndAndExpand"/>
+        </StackLayout>
+        <ListView x:Name="ProductsListView" ItemSelected="OnSelectItem">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10" Orientation="Horizontal" >
+                            <Label Text="{Binding DisplayName}" HorizontalOptions="StartAndExpand"/>
+                            <Label Text="{Binding LowestPrice}" HorizontalOptions="End" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            <Label Text="{Binding HighestPrice}" HorizontalOptions="End" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout Margin="20">
+            <Label Text="Data" />
+            <DatePicker Format="dd/MM/yyyy" x:Name="DateEntry"></DatePicker>
+            <Label Text="Produto"/>
+            <Entry Placeholder="nome do produto" x:Name="NameEntry" ReturnType="Next"/>
+            <Label Text="Preco" />
+            <Entry Placeholder="preco" Keyboard="Numeric" x:Name="PriceEntry" ReturnType="Send" />
+            <Button Text="SALVAR" Clicked="OnSaveProduct" x:Name="UpsertButton"/>
+        </StackLayout>    
+    </StackLayout>
+
+</ContentPage>
