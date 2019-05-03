@@ -31,14 +31,14 @@ namespace SuperControl.Model
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
-        public double LowestPrice
+        public decimal LowestPrice
         {
             get
             {
                 return Prices.Min(t => t.Price);
             }
         }
-        public double HighestPrice
+        public decimal HighestPrice
         {
             get
             {

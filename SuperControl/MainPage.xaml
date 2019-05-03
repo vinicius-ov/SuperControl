@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:SuperControl"
+             xmlns:converter="clr-namespace:SuperControl.Converters"
              x:Class="SuperControl.MainPage"
              Title="Produtos">
     
@@ -9,19 +9,29 @@
         <ToolbarItem Text="Detalhes"/>
     </ContentPage.ToolbarItems>
     
+    <ContentPage.Resources>
+    <ResourceDictionary>
+      <converter:CurrencyConverter x:Key="currencyConverter" />
+    </ResourceDictionary>
+</ContentPage.Resources>
+    
     <StackLayout Padding="10">
         <StackLayout Orientation="Horizontal">
             <Label Text="Produto" HorizontalOptions="StartAndExpand"/>            
-            <Label Text="Preços" HorizontalOptions="EndAndExpand"/>
+            <Label Text="Preços" HorizontalOptions="EndAndExpand" Margin="0,0,20,0"/>
         </StackLayout>
         <ListView x:Name="ProductsListView" ItemSelected="OnSelectItem">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Padding="10" Orientation="Horizontal" >
-                            <Label Text="{Binding DisplayName}" HorizontalOptions="StartAndExpand"/>
-                            <Label Text="{Binding LowestPrice}" HorizontalOptions="End" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                            <Label Text="{Binding HighestPrice}" HorizontalOptions="End" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        <StackLayout Orientation="Horizontal" BackgroundColor="LightCyan" >
+                            <Label Text="{Binding DisplayName}" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" />
+                            <StackLayout Orientation="Horizontal" BackgroundColor="Green" Padding="10,0,10,0">
+                                <Label Text="{Binding LowestPrice, StringFormat='{0:F2}'}" HorizontalOptions="End" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" BackgroundColor="Red" Padding="10,0,10,0">
+                                <Label Text="{Binding HighestPrice, StringFormat='{0:F2}'}" HorizontalOptions="End" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                            </StackLayout>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
@@ -29,11 +39,11 @@
         </ListView>
         <StackLayout Margin="20">
             <Label Text="Data" />
-            <DatePicker Format="dd/MM/yyyy" x:Name="DateEntry"></DatePicker>
+            <DatePicker Format="dd/MM/yyyy" x:Name="DateEntry" Date="{Binding Date}"></DatePicker>
             <Label Text="Produto"/>
             <Entry Placeholder="nome do produto" x:Name="NameEntry" ReturnType="Next"/>
             <Label Text="Preco" />
-            <Entry Placeholder="preco" Keyboard="Numeric" x:Name="PriceEntry" ReturnType="Send" />
+            <Entry Placeholder="preco" Text="{Binding Price, Converter={StaticResource currencyConverter}}" Keyboard="Numeric" x:Name="PriceEntry" ReturnType="Send"/>
             <Button Text="SALVAR" Clicked="OnSaveProduct" x:Name="UpsertButton"/>
         </StackLayout>    
     </StackLayout>

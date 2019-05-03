@@ -17,18 +17,24 @@ namespace SuperControl
     {
         ObservableCollection<Product> products = new ObservableCollection<Product>();
         Product selected;
+        DatedPrice datePrice = new DatedPrice();
+        double price = 0.0;
         public MainPage()
         {
             InitializeComponent();
             ProductsListView.ItemsSource = products;
             NameEntry.Keyboard = Keyboard.Create(KeyboardFlags.Suggestions | KeyboardFlags.CapitalizeWord);
+            PriceEntry.BindingContext = datePrice;
+            DateEntry.BindingContext = datePrice;
+            
         }
+
         public void OnSaveProduct(object sender, EventArgs args)
         {
             int index = 0;
             DateTime date = DateEntry.Date;
             double price = double.Parse(PriceEntry.Text);
-            DatedPrice datePrice = new DatedPrice(date, price);
+            DatedPrice datePrice = new DatedPrice(date, new decimal(price));
             Product product = new Product();
             if (selected != null)
             {
